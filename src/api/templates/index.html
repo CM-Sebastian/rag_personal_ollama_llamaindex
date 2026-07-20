@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>RAG Project</title>
+</head>
+<body>
+    <header class="elemento-header">
+        <div class="titulo-header">
+            <h1>QWEN 2.5:1.5b</h1>      
+            <img src=""/>      
+        </div>
+        <div class="opciones-header">
+            <button>Ajustes</button>
+            
+        </div>
+    </header>
+    <section class="contenido-section">
+        <aside class="menu-aside">
+            <nav class="menu-nav" aria-label="Navegación principal">
+                <ul>
+                    <li id="nuevo-chat"><button>Nuevo Chat</button></li>
+                    <li id="rol"><button>Cambiar Rol</button></li>
+                    <li id="debug"><button>Debug</button></li>
+                    <li id=""><button>Nuevo Chat</button></li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="chat-div">
+            <div class="chat-cabecera">
+                <h2>Soporte en línea</h2>
+                <span class="estado-punto"></span>
+            </div>
+            
+            <div class="chat-mensajes" id="chatMensajes">
+                <div class="mensaje recibido">
+                <p>¡Hola! ¿En qué podemos ayudarte hoy?</p>
+                </div>
+                <div class="mensaje enviado">
+                <p>Hola, necesito ayuda con mi cuenta.</p>
+                </div>
+            </div>
+            
+            <div class="chat-entrada">
+                <textarea id="textoMensaje" placeholder="Escribe un mensaje..." rows="1"></textarea>
+                <button id="botonEnviar">Enviar</button>
+            </div>
+        </div>
+    </section>
+    <script src="../static/main.js"></script>     
+</body>
+</html>

@@ -1,0 +1,282 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&family=Stack+Sans+Notch:wght@200..700&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Estilos para el texto*/
+h1 {
+    font-family: "Stack Sans Notch", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: white;
+}
+
+h2,h3 {
+    font-family: "Mozilla Text", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: white;
+}
+
+p,li {
+    font-family: "Mozilla Text", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+}
+
+/* Fondo general */
+body {
+    background: linear-gradient(135deg, #06070b 0%, #0e1728 45%, #111827 100%);
+    color: #f5f7fa;
+
+
+}
+
+.contenido-section{    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Header */
+.elemento-header {
+    position:static;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    z-index: 1000;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+
+}
+
+.titulo-header {
+    width: auto;
+    height: 50px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 30px;
+}
+
+.opciones-header{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.opciones-header button{
+    width: auto;
+    height: 50px;
+    background-color: black;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 30px;
+}
+
+/* Menu */
+.menu-aside {
+    width: 360px;
+    height: 100%;
+    margin-left: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+li{
+    display: flex;
+    justify-content: center;
+}
+
+li button {
+  background: linear-gradient(90deg, #00a89a, #1f9eff);
+  border: none;
+  width: 100%;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: left;
+}
+
+
+
+button:hover{
+    background: linear-gradient(90deg, #1f9eff, #00a89a);
+    transform: translateX(2px);
+}
+
+/* Chat principal */
+.chat-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-right: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.chat-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10px;
+    padding: 18px;
+    background: linear-gradient(90deg, rgba(8, 41, 70, 0.95), rgba(17, 24, 39, 0.95));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.estado-punto {
+    width: 12px;
+    height: 12px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
+}
+
+.chat-mensajes {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: hidden;
+    background: linear-gradient(180deg, rgba(5, 10, 20, 0.65), rgba(13, 18, 30, 0.95));
+}
+
+.mensaje {
+    max-width: 75%;
+    padding: 12px 14px;
+    border-radius: 16px;
+    line-height: 1.5;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.mensaje.recibido {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mensaje.enviado {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #00a89a, #1f9eff);
+}
+
+.chat-entrada {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(8, 12, 24, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+textarea {
+    flex: 1;
+    resize: none;
+    height: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 12px;
+    color: white;
+
+    overflow-y: auto; 
+        resize: none; /* Evita que el usuario lo redimensione */
+    outline: none;
+    box-sizing: border-box;
+    padding: 10px;
+  background: transparent;
+    scrollbar-gutter: stable;
+}
+
+textarea::placeholder {
+    color: #9ca3af;
+}
+
+button {
+    border: none;
+    border-radius: 300px;
+    padding: 0 16px;
+    background: linear-gradient(135deg, #00a89a, #1f9eff);
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(31, 158, 255, 0.25);
+}
+
+@media (max-width: 900px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-aside {
+        margin: 16px;
+    }
+
+    .chat-div {
+        margin: 0 16px 16px;
+        height: auto;
+        min-height: 70vh;
+    }
+}
+
+
+/*scrollbar */
+*::-webkit-scrollbar {
+    width: 12px;  /* Ancho de la barra vertical */
+    height: 12px; /* Alto de la barra horizontal */
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent; /* Color de fondo de la barra */
+
+}
+
+
+*::-webkit-scrollbar-thumb {
+    background-color: #00a89a; /* Color y opacidad */
+    border-radius: 20px; /* Hace que se vea redondeado */
+    border: 2px solid transparent; /* Crea un espacio vacío dentro del contenedor */
+    background-clip: content-box; /* Importante: centra el thumb dentro de la barra */
+}
+
+*::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #1f9eff; /* Color al pasar el ratón por encima */
+}
