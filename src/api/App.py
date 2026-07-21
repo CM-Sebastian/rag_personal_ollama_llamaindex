@@ -47,10 +47,14 @@ def get_home(request: Request):
 #Parte IA
 
 
-@app.post("/chat")
+@app.post("/chat-input")
 def recibirMensaje(request: Entradas):
-    entradaUsuario = request.texto
-    print(entradaUsuario)
+
+    entradaChat = request.texto
+    #Falta meter rol aqui
+    PersonalRAG.ask(request.texto,role=role)
+    
+
 
 
 """

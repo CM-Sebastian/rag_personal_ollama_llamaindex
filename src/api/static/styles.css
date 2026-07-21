@@ -80,7 +80,6 @@ body {
 
 .opciones-header button{
     width: auto;
-    height: 50px;
     background-color: black;
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 30px;
@@ -98,33 +97,66 @@ body {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
-ul {
-    list-style-type: none;
+#menu-div{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    flex-wrap: nowrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: start;
 }
 
-li{
+#menu-div button{
+    width: 150px;
+}
+
+
+#rol-div{
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    gap: 100px;
     justify-content: center;
+    align-items: center;
 }
 
-li button {
-  background: linear-gradient(90deg, #00a89a, #1f9eff);
-  border: none;
-  width: 100%;
-  padding: 10px 15px;
-  cursor: pointer;
-  text-align: left;
+#rol-div button{
+    background: none;
+    text-decoration: underline;
+    text-decoration-color: #1f5bff; /* Cambia el color del subrayado */
+    text-decoration-thickness: 3px; /* Cambia el grosor de la línea */
+    text-decoration-style: solid;
+}
+
+#rol-div button:hover{
+    text-decoration-color: #19e8ff; 
+    text-decoration-thickness: 3px; 
+    box-shadow: none;
+
 }
 
 
-
-button:hover{
-    background: linear-gradient(90deg, #1f9eff, #00a89a);
-    transform: translateX(2px);
+button {
+    height: 50px;
+    border: none;
+    border-radius: 300px;
+    padding: 0 16px;
+    background: linear-gradient(135deg, #00a89a, #1f9eff);
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.seleccionado {
+    background: linear-gradient(135deg, #19e8ff, #1f5bff);
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(31, 158, 255, 0.25);
+}
+
 
 /* Chat principal */
 .chat-div {
@@ -207,11 +239,11 @@ textarea {
     color: white;
 
     overflow-y: auto; 
-        resize: none; /* Evita que el usuario lo redimensione */
+    resize: none; /* Evita que el usuario lo redimensione */
     outline: none;
     box-sizing: border-box;
     padding: 10px;
-  background: transparent;
+    background: transparent;
     scrollbar-gutter: stable;
 }
 
@@ -219,21 +251,6 @@ textarea::placeholder {
     color: #9ca3af;
 }
 
-button {
-    border: none;
-    border-radius: 300px;
-    padding: 0 16px;
-    background: linear-gradient(135deg, #00a89a, #1f9eff);
-    color: white;
-    cursor: pointer;
-    font-weight: 700;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(31, 158, 255, 0.25);
-}
 
 @media (max-width: 900px) {
     body {
