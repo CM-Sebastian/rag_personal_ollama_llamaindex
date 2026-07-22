@@ -6,7 +6,7 @@ from llama_index.vector_stores.qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
 
 from .config import AppConfig
-from .privacy import REFUSAL_EN, REFUSAL_ES, is_sensitive_query, redact_sensitive_text
+from .privacy import REFUSAL_EN, REFUSAL_ES, REFUSAL_PR_EN, REFUSAL_PR_ES, is_sensitive_query, redact_sensitive_text, is_prohibited_question
 from .prompts import build_prompt
 
 DetectorFactory.seed = 0
@@ -50,12 +50,19 @@ class PersonalRAG:
 
     def ask(self, query: str, role: dict) -> dict:
         language = detect_language(query)
+        if is_prohibited_question(query):
+            return {
+                "answer": REFUSAL_PR_EN if language == "en" else REFUSAL_PR_ES,
+                "language": language,
+                "sources": [],
+            }
         if is_sensitive_query(query):
             return {
                 "answer": REFUSAL_EN if language == "en" else REFUSAL_ES,
                 "language": language,
                 "sources": [],
             }
+
 
         query_engine = self.index.as_query_engine(
             similarity_top_k=self.config.similarity_top_k,

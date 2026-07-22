@@ -9,28 +9,34 @@
 <body>
     <header class="elemento-header">
         <div class="titulo-header">
-            <h1>QWEN 2.5:1.5b</h1>      
-            <img src=""/>      
+            <h1>Projecto RAG</h1>      
+            <h6>QWEN 2.5:1.5b</h6>      
         </div>
         <div class="opciones-header">
-            <button>Ajustes</button>
-            
+            <button id="logoutButton" class="oculto">Cerrar sesión</button>
         </div>
     </header>
     <section class="contenido-section">
         <aside class="menu-aside">
+            <div id="login-panel">
+                <h3>Iniciar sesión</h3>
+                <input id="loginUsername" type="text" placeholder="Usuario" autocomplete="username" />
+                <input id="loginPassword" type="password" placeholder="Contraseña" autocomplete="current-password" />
+                <button id="loginButton">Ingresar</button>
+                <div id="loginError" class="error-message oculto"></div>
+            </div>
             <nav>
                 <div id="menu-div" aria-label="Navegación principal">
                 
                     <button id="NuevoChat">Nuevo Chat</button>
                     <button id="CambiarRol">Cambiar Rol</button>
-                    <div id="rol-div" style="display: none;">
-                        <button id="CerrarRoles-button">X</button>
-                        <button id="rolRecultador">Reclutador</button>
-                        <button id="rolCliente">Cliente</button>
-                        <button id="rolEstudiante">Estudiante</button>
-                        <button id="rolColega">Colega profesional</button>
-                        <button id="rolPublico">Publico general</button>
+
+                    <div  id="rol-div">
+                        <button id="rolReclutador" data-role="1" class="seleccionado">Reclutador</button>
+                        <button id="rolCliente" data-role="2">Cliente</button>
+                        <button id="rolEstudiante" data-role="3">Estudiante</button>
+                        <button id="rolColega" data-role="4">Colega profesional</button>
+                        <button id="rolPublico" data-role="5">Publico general</button>
 
                     </div>
 
@@ -39,24 +45,17 @@
                 </div>
             </nav>
         </aside>
-        <div class="chat-div">
-            <div class="chat-cabecera">
-                <h2>Chat</h2>
-                <span class="estado-punto"></span>
-            </div>
-            
-            <div class="chat-mensajes" id="chatMensajes">
-                <div class="mensaje recibido">
-                <p>¡Hola! ¿En qué podemos ayudarte hoy?</p>
+        <div id="chat-wrapper" class="oculto">
+            <div class="chat-div">
+                <div class="chat-cabecera">
+                    <h2>Chat</h2>
+                    <span class="estado-punto"></span>
                 </div>
-                <div class="mensaje enviado">
-                <p>Hola, necesito ayuda con mi cuenta.</p>
+                <div class="chat-mensajes" id="chatMensajes"></div>
+                <div class="chat-entrada">
+                    <textarea id="textoMensaje" placeholder="Escribe un mensaje..." rows="1"></textarea>
+                    <button id="botonEnviar">Enviar</button>
                 </div>
-            </div>
-            
-            <div class="chat-entrada">
-                <textarea id="textoMensaje" placeholder="Escribe un mensaje..." rows="1"></textarea>
-                <button id="botonEnviar">Enviar</button>
             </div>
         </div>
 
@@ -64,6 +63,6 @@
     </section>
 
 
-    <script src="../static/main.js"></script>     
+    <script src="../static/main.js"></script>
 </body>
 </html>

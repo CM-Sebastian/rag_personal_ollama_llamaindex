@@ -38,6 +38,9 @@ def build_manifest(data_dir: Path) -> dict[str, dict[str, Any]]:
             "sha256": sha256_file(path),
             "size_bytes": path.stat().st_size,
             "modified_ns": path.stat().st_mtime_ns,
+            #Agregar metadatos (Ejercio 8)
+            "date" : datetime.now()
+            
         }
     return manifest
 

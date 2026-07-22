@@ -22,12 +22,17 @@ class AppConfig:
     data_dir: Path = Path(os.getenv("DATA_DIR", "data/raw"))
     versions_dir: Path = Path(os.getenv("VERSIONS_DIR", "data/versions"))
     manifest_path: Path = Path(os.getenv("MANIFEST_PATH", "storage/manifests/documents.json"))
-    chunk_size: int = int(os.getenv("CHUNK_SIZE", "600"))
+    
+    #Se modifica chunk size (Ejercicio 3)
+    chunk_size: int = int(os.getenv("CHUNK_SIZE", "300"))
     chunk_overlap: int = int(os.getenv("CHUNK_OVERLAP", "80"))
-    similarity_top_k: int = int(os.getenv("SIMILARITY_TOP_K", "4"))
+
+    #Se modifica similarity_top_k (Ejercicio 4)
+    similarity_top_k: int = int(os.getenv("SIMILARITY_TOP_K", "10"))
     request_timeout: float = float(os.getenv("REQUEST_TIMEOUT", "180"))
     min_free_disk_gb: float = float(os.getenv("MIN_FREE_DISK_GB", "3"))
     debug_sources: bool = _bool_env("DEBUG_SOURCES", False)
+    auth_db_path: Path = Path(os.getenv("AUTH_DB_PATH", "storage/auth/auth.db"))
 
     def ensure_directories(self) -> None:
         for path in (

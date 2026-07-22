@@ -1,12 +1,12 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mozilla+Text:wght@200..700&family=Stack+Sans+Notch:wght@200..700&display=swap');
-*{
+
+* {
     margin: 0px;
     padding: 0px;
 }
 
-/* Estilos para el texto*/
+/* Estilos para el texto */
 h1 {
     font-family: "Stack Sans Notch", sans-serif;
     font-optical-sizing: auto;
@@ -15,7 +15,7 @@ h1 {
     color: white;
 }
 
-h2,h3 {
+h2, h3 {
     font-family: "Mozilla Text", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
@@ -23,7 +23,15 @@ h2,h3 {
     color: white;
 }
 
-p,li {
+h6 {
+    font-family: "Mozilla Text", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: white;
+}
+
+p, li {
     font-family: "Mozilla Text", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -35,12 +43,13 @@ p,li {
 body {
     background: linear-gradient(135deg, #06070b 0%, #0e1728 45%, #111827 100%);
     color: #f5f7fa;
-
-
+    height: 100vh; /* Cubrir toda la altura de la pantalla */
+    overflow: hidden; /* Evitar scroll global */
 }
 
-.contenido-section{    
+.contenido-section {    
     width: 100%;
+    height: calc(100vh - 90px); /* Altura total menos el header y márgenes */
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -49,7 +58,7 @@ body {
 
 /* Header */
 .elemento-header {
-    position:static;
+    position: static;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
@@ -57,7 +66,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;    
-
 }
 
 .titulo-header {
@@ -66,19 +74,21 @@ body {
     margin-left: 10px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
     align-items: center;
     color: black;
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 30px;
 }
 
-.opciones-header{
+.opciones-header {
     margin-right: 10px;
     display: flex;
     flex-direction: row;
 }
 
-.opciones-header button{
+.opciones-header button {
     width: auto;
     background-color: black;
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -88,16 +98,17 @@ body {
 /* Menu */
 .menu-aside {
     width: 360px;
-    height: 100%;
+    height: calc(100% - 32px); /* Se ajusta a la altura del contenido menos padding */
     margin-left: 10px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 18px;
     padding: 16px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Permite scroll interno en el aside si el menú es muy largo */
 }
 
-#menu-div{
+#menu-div {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -106,35 +117,106 @@ body {
     justify-content: start;
 }
 
-#menu-div button{
+#menu-div button {
     width: 150px;
 }
 
-
-#rol-div{
+/* ====== ESTILOS ENFOCADOS AL FORMULARIO DE LOGIN ====== */
+#login-panel {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 12px;
+    padding: 24px 20px;
+    margin-bottom: 20px;
+    background: rgba(10, 15, 30, 0.6); /* Fondo más oscuro y elegante */
+    border: 1px solid rgba(31, 158, 255, 0.3); /* Borde con tinte azul */
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); /* Sombra más profunda */
+    backdrop-filter: blur(8px); /* Efecto cristalino moderno */
+    box-sizing: border-box;
+}
+
+
+#login-panel h3 {
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #1f9eff; /* Color de acento */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#login-panel input {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.04);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease; /* Transición suave */
+    box-sizing: border-box;
+}
+
+#login-panel input:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#login-panel input:focus {
+    outline: none;
+    border-color: #1f9eff;
+    box-shadow: 0 0 12px rgba(31, 158, 255, 0.4); /* Resplandor al hacer focus */
+    background: rgba(15, 25, 45, 0.8);
+}
+
+#login-panel button {
+    width: 100%;
+    min-height: 50px;
+    border-radius: 14px;
+    margin-top: 8px;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+}
+/* ======================================================= */
+
+.error-message {
+    color: #fecaca;
+    background: rgba(254, 202, 202, 0.14);
+    border: 1px solid rgba(248, 113, 113, 0.25);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+}
+
+#logoutButton {
+    min-width: 140px;
+}
+
+#rol-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     justify-content: center;
     align-items: center;
 }
 
-#rol-div button{
+#rol-div button {
     background: none;
     text-decoration: underline;
-    text-decoration-color: #1f5bff; /* Cambia el color del subrayado */
-    text-decoration-thickness: 3px; /* Cambia el grosor de la línea */
+    text-decoration-color: #1f5bff; 
+    text-decoration-thickness: 3px; 
     text-decoration-style: solid;
 }
 
-#rol-div button:hover{
-    text-decoration-color: #19e8ff; 
+#rol-div button:hover {
+    text-decoration-color: #19e8ff;
     text-decoration-thickness: 3px; 
     box-shadow: none;
-
 }
-
 
 button {
     height: 50px;
@@ -157,13 +239,18 @@ button:hover {
     box-shadow: 0 8px 20px rgba(31, 158, 255, 0.25);
 }
 
+/* Wrapper principal del chat para ajustarse al layout */
+#chat-wrapper {
+    width: 100%;
+    height: 100%; /* Ocupa el 100% del contenedor padre */
+}
 
 /* Chat principal */
 .chat-div {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 20px); /* Altura estática respecto al contenedor */
     margin-right: 10px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -176,8 +263,8 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 10px;
-    padding: 18px;
+    min-height: 48px;
+    padding: 12px 18px;
     background: linear-gradient(90deg, rgba(8, 41, 70, 0.95), rgba(17, 24, 39, 0.95));
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -196,7 +283,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    overflow-y: hidden;
+    overflow-y: scroll; /* Se cambia de auto a scroll para que la barra de scroll sea fija (estática) */
     background: linear-gradient(180deg, rgba(5, 10, 20, 0.65), rgba(13, 18, 30, 0.95));
 }
 
@@ -230,16 +317,14 @@ button:hover {
 
 textarea {
     flex: 1;
-    resize: none;
     height: 50px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 30px;
     background: rgba(255, 255, 255, 0.08);
     padding: 10px 12px;
     color: white;
-
     overflow-y: auto; 
-    resize: none; /* Evita que el usuario lo redimensione */
+    resize: none; 
     outline: none;
     box-sizing: border-box;
     padding: 10px;
@@ -251,41 +336,51 @@ textarea::placeholder {
     color: #9ca3af;
 }
 
+/* Estilos de utilidad */
+.oculto,
+#rol-div.oculto {
+    display: none !important;
+}
 
 @media (max-width: 900px) {
     body {
         grid-template-columns: 1fr;
+        height: auto; /* Permitir scroll en móviles */
+        overflow: auto;
+    }
+    
+    .contenido-section {
+        flex-direction: column;
+        height: auto;
     }
 
     .menu-aside {
         margin: 16px;
+        width: calc(100% - 32px);
+        height: auto;
     }
 
     .chat-div {
         margin: 0 16px 16px;
-        height: auto;
-        min-height: 70vh;
+        height: 70vh; /* Ajuste específico para móvil */
     }
 }
 
-
-/*scrollbar */
+/* Scrollbar general */
 *::-webkit-scrollbar {
-    width: 12px;  /* Ancho de la barra vertical */
-    height: 12px; /* Alto de la barra horizontal */
+    width: 12px; 
+    height: 12px; 
 }
 
 *::-webkit-scrollbar-track {
-    background: transparent; /* Color de fondo de la barra */
-
+    background: transparent; 
 }
 
-
 *::-webkit-scrollbar-thumb {
-    background-color: #00a89a; /* Color y opacidad */
-    border-radius: 20px; /* Hace que se vea redondeado */
-    border: 2px solid transparent; /* Crea un espacio vacío dentro del contenedor */
-    background-clip: content-box; /* Importante: centra el thumb dentro de la barra */
+    background-color: #00a89a; 
+    border-radius: 20px; 
+    border: 2px solid transparent; 
+    background-clip: content-box; 
 }
 
 *::-webkit-scrollbar-button {
@@ -295,5 +390,5 @@ textarea::placeholder {
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    background: #1f9eff; /* Color al pasar el ratón por encima */
+    background: #1f9eff; 
 }

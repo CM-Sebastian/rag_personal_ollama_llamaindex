@@ -14,6 +14,7 @@ from .config import AppConfig
 from .ingest import ingest_documents
 from .rag import PersonalRAG
 from .roles import get_role, menu_roles
+from .auth import AuthDB
 
 console = Console()
 
@@ -78,6 +79,22 @@ def command_chat(config: AppConfig) -> int:
     debug = config.debug_sources
     try:
         rag = PersonalRAG(config)
+        # simple auth: require login before chat if db exists
+        auth = AuthDB(config.auth_db_path)
+        try:
+            # if DB exists and has users, prompt to login
+            if auth.db_path.exists():
+                import getpass
+                console.print("Autenticación requerida. Ingrese credenciales.")
+                username = console.input("Usuario: ")
+                password = getpass.getpass("Password: ")
+                user = auth.verify_user(username, password)
+                if not user:
+                    console.print("[red]Credenciales inválidas.[/red]")
+                    return 1
+        except Exception:
+            # if auth setup not ready, continue without auth
+            pass
     except Exception as error:
         console.print(f"[red]{error}[/red]")
         return 1
@@ -156,6 +173,8 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     args = build_parser().parse_args()
     config = AppConfig()
+    # ensure auth DB parent exists
+    AuthDB(config.auth_db_path).db_path.parent.mkdir(parents=True, exist_ok=True)
     if args.command == "check":
         return command_check(config)
     if args.command == "ingest":

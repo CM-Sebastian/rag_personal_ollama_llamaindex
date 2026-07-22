@@ -44,5 +44,24 @@ Las contraseñas nunca deben guardarse en texto plano.
 | General | Sí | Parcial | Parcial | No |
 
 ## Actividad
-
 Diseñe una base SQLite con tablas `users`, `roles`, `permissions` y `audit_events`. Implemente autenticación por consola antes de migrar a web.
+
+Implementación incluida en este repositorio:
+
+- Módulo: `src/auth.py` — administra la base SQLite y operaciones de usuarios.
+- Hash de contraseñas: usa `argon2-cffi` (Argon2) para almacenar contraseñas de forma segura.
+- Comportamiento: bloqueo temporal tras varios intentos fallidos, auditoría de eventos y roles iniciales.
+
+Comandos sugeridos para inicializar la base (ejecutar desde el proyecto):
+
+```powershell
+python -c "from src.auth import AuthDB; AuthDB('storage/auth/auth.db').init_db()"
+```
+
+Para crear un usuario administrador (ejemplo):
+
+```powershell
+python -c "from src.auth import AuthDB; AuthDB('storage/auth/auth.db').create_user('admin','securepassword','administrador')"
+```
+
+El `src/cli.py` realiza una verificación simple al entrar en `chat` cuando la DB existe: solicita usuario y contraseña por consola.

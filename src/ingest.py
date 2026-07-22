@@ -54,5 +54,6 @@ def ingest_documents(config: AppConfig, rebuild: bool = False) -> bool:
         show_progress=True,
     )
     save_manifest(config.manifest_path, new_manifest)
+    save_manifest(config.versions_dir, )
     client.close()
     return True
