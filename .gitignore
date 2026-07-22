@@ -6,6 +6,9 @@ __pycache__/
 *.pyc
 .env
 .pytest_cache/
+
+#Evita subir archivos generados por auth
+storage/auth/*
 storage/qdrant/*
 storage/manifests/*
 data/raw/*
